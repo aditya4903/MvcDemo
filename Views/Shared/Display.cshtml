@@ -1,0 +1,34 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@addTagHelper *, AuthoringTagHelpers
+
+<form asp-controller="Home" asp-action="Display" method = "post">
+  <input type="hidden" asp-for="@Model.ID"/>
+  Title:<br/>
+  <input type="text" asp-for="@Model.Title" name="Title" placeholder="Title"/>
+  <br/>
+   Release Date:<br>
+  <input type="text" asp-for="@Model.ReleaseDate" name="Release Date" placeholder="Release Date"/>
+  <br>
+   Genre:<br>
+  <input type="text" asp-for="@Model.Genre" name="Genre" placeholder="Genre"/>
+  <br>
+   Price:<br>
+  <input type="text" asp-for="@Model.Price" name="Price" placeholder="Price"/>
+  <br>
+
+  <br>
+  @if(Model.ID ==0){
+  <input type="submit" value="Create"/>
+  }else{
+    <input type="submit" value="Update"/>
+  }
+</form> 
+
+

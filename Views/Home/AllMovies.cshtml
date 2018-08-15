@@ -1,0 +1,28 @@
+@model List<Movie>
+<form asp-controller="Home" asp-action="Update" method = "post">
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Release Date</td>
+            <td>Genre</td>
+            <td>Price</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.ReleaseDate</td>
+            <td>@item.Genre</td>
+            <td>@item.Price</td>
+            <td><a asp-action="Edit" asp-route-id="@item.ID">Edit</a></td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+</form>
